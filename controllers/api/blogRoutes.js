@@ -1,41 +1,6 @@
 const router = require('express').Router();
 const { Blogs } = require('../../models');
 const withAuth = require('../../utils/auth');
-var multer = require('multer');
-var path = require('path');
-
-var storage = multer.diskStorage({
-  destination: './public/upload',
-  filename: function (req, file, cb) {
-    /*Appending extension with original name*/
-    cb(null, file.originalname)
-  }
-})
-
-var upload = multer({ storage: storage });
-
-router.post('/newimage', upload.single('image'), async (req, res) => {
-  console.log('newimage')
-  console.log(req.body);
-  console.log(req.file);
-  try {
-
-
-    if (req.file) {
-      const newBlog = await Blogs.create({
-        title: req.body.title,
-        content: req.body.content,
-        user_id: req.session.user_id,
-        image: req.file.originalname
-      })
-      // res.json(req.file)
-      res.redirect('/');
-    }
-  } catch (error) {
-    console.error(error)
-    res.status(500).json("Please post better content")
-  }
-});
 
 router.post('/', withAuth, async (req, res) => {
   try {
