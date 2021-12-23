@@ -77,7 +77,7 @@ router.get('/blog-page', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('blog-page', {
+    res.render('layouts/blog-page', {
       ...user,
       logged_in: true
     });
@@ -93,7 +93,7 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('layouts/login');
 });
 
 module.exports = router;
