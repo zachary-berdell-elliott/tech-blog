@@ -1,4 +1,4 @@
-const loginFormHandler = async (event) => {
+const loginFormHandler = (event) => {
     event.preventDefault();
   
     // Collect values from the login form
@@ -12,7 +12,6 @@ const loginFormHandler = async (event) => {
         type: 'POST',
         dataType: 'json',
         data: JSON.stringify({ email, password }),
-        headers: { 'Content-Type': 'application/json' },
         success: function() {
             // If successful, redirect the browser to the profile page
             document.location.replace('/profile');
@@ -24,7 +23,7 @@ const loginFormHandler = async (event) => {
     }
 }
   
-const signupFormHandler = async (event) => {
+const signupFormHandler = (event) => {
     event.preventDefault();
   
     const name = $('#name-signup').val().trim();
