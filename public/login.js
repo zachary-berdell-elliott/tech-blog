@@ -39,7 +39,7 @@ const signupFormHandler = (event) => {
         success: function() {
             document.location.replace('/profile');
         },
-        error: function() {
+        error: function(response) {
             alert(response.statusText);
         }
       });
