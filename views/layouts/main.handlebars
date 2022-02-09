@@ -22,7 +22,7 @@
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        <a href="/">Tech Blog</a>
+        <a href="/" aria-label="Home Page">Tech Blog</a>
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
@@ -53,13 +53,9 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/js/getcomments.js"></script>
-  <script src="/js/getupvotes.js"></script>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/js/addcomment.js"></script>
   <script src="/js/logout.js"></script>
-  <script src="/js/upvote.js"></script>
   {{/if}}
 </body>
 
