@@ -11,7 +11,7 @@ const loginFormHandler = (event) => {
         url: '/api/users/login', 
         type: 'POST',
         dataType: 'json',
-        data: JSON.stringify({ email, password }),
+        data: { "email": email, "password": password },
         success: function() {
             // If successful, redirect the browser to the profile page
             document.location.replace('/profile');
@@ -29,13 +29,14 @@ const signupFormHandler = (event) => {
     const name = $('#name-signup').val().trim();
     const email = $('#email-signup').val().trim();
     const password = $('#password-signup').val().trim();
+    console.log(name, email, password)
   
     if (name && email && password) {
       $.ajax({
         url: '/api/users',
         type: 'POST',
         dataType: 'json',
-        data: JSON.stringify({ name, email, password }),
+        data: { "name": name, "email": email, "password": password },
         success: function() {
             document.location.replace('/profile');
         },
