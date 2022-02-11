@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blogs, Users } = require('../models');
+const { Blogs, Users, Comments } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -55,10 +55,29 @@ router.get('/blog/:id', async (req, res) => {
       ],
     });
 
+    const commentData = await Comments.findAll({
+      where: {
+        postId: req.params.id
+      },
+        include: [
+          {
+            model: Users,
+            attributes: ['name']
+          }
+        ]
+    });
+
     const blog = blogData.get({ plain: true });
+    const comment = commentData.get({ plain: true });
+
+    if (req.session.user_id != blog.id) {
+
+    }
 
     res.render('partials/blog', {
       ...blog,
+      ...comment,
+      original_poster: req.session.user_id != blog.id ? false : true,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -67,7 +86,7 @@ router.get('/blog/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/blog-page', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await Users.findByPk(req.session.user_id, {
@@ -77,7 +96,7 @@ router.get('/blog-page', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('layouts/blog-page', {
+    res.render('layouts/dashboard', {
       ...user,
       logged_in: true
     });
@@ -89,7 +108,7 @@ router.get('/blog-page', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/blog-page');
+    res.redirect('/dashboard');
     return;
   }
 
