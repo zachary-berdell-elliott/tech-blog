@@ -14,7 +14,7 @@ const loginFormHandler = (event) => {
         data: { "email": email, "password": password },
         success: function() {
             // If successful, redirect the browser to the profile page
-            document.location.replace('/profile');
+            document.location.replace('/dashboard');
         },
         error: function() {
             alert(response.statusText);
@@ -38,7 +38,7 @@ const signupFormHandler = (event) => {
         dataType: 'json',
         data: { "name": name, "email": email, "password": password },
         success: function() {
-            document.location.replace('/profile');
+            document.location.replace('/dashboard');
         },
         error: function(response) {
             alert(response.statusText);
