@@ -35,7 +35,7 @@
             <a href="/dashboard">dashboard</a>
           </li>
           <li>
-            <label class="no-button" id="logout">Logout</label>
+            <a href="/" class="no-button" id="logout">Logout</label>
           </li>
         </ul>
         {{else}}
@@ -55,7 +55,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+  <script src="/logout.js"></script>
   {{/if}}
 </body>
 
