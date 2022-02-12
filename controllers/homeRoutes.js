@@ -55,7 +55,7 @@ router.get('/blog/:id', async (req, res) => {
       ],
     });
 
-    const commentData = await Comments.findAll({
+/*    const commentData = await Comments.findAll({
       where: {
         postId: req.params.id
       },
@@ -65,19 +65,15 @@ router.get('/blog/:id', async (req, res) => {
             attributes: ['name']
           }
         ]
-    });
+    }); */
 
     const blog = blogData.get({ plain: true });
-    const comment = commentData.get({ plain: true });
-
-    if (req.session.user_id != blog.id) {
-
-    }
+    //const comment = commentData.get({ plain: true });
 
     res.render('partials/blog', {
       ...blog,
-      ...comment,
-      original_poster: req.session.user_id != blog.id ? false : true,
+      //...comment,
+      original_poster: req.session.user_id != blog.user_id ? false : true,
       logged_in: req.session.logged_in
     });
   } catch (err) {
