@@ -22,7 +22,7 @@ function delButtonHandler() {
     $.ajax({
         url: `/api/blog/${id}`,
         type: 'DELETE',
-        success: () => document.location.replace('/profile'),
+        success: () => document.location.replace('/dashboard'),
         error: () => alert('Failed to delete blog post')
     }); 
 }
