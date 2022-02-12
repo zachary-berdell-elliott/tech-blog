@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -29,13 +30,13 @@
         {{#if logged_in}}
         <ul>
           <li>
-            <label user-id={{id}}>Welcome {{name}}</label>
+            <label>Welcome {{name}}</label>
           </li>
           <li>
             <a href="/dashboard">dashboard</a>
           </li>
           <li>
-            <a href="/" class="no-button" id="logout">Logout</label>
+            <a href="/" class="no-button" id="logout">Logout</a>
           </li>
         </ul>
         {{else}}
@@ -52,7 +53,6 @@
     </footer>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/logout.js"></script>

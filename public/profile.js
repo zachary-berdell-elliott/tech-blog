@@ -1,16 +1,16 @@
-const newFormHandler = async (event) => {
+function newFormHandler (event) {
     event.preventDefault();
   
-    const title = $('#blog-name').val.trim();
-    const content = $('#blog-desc').val.trim();
+    const title = $('#blog-name').val().trim();
+    const content = $('#blog-desc').val().trim();
   
     if (title && content) {
         $.ajax({
                 url: `/api/blog`,
                 type: 'POST',
                 dataType: 'json',
-                data: JSON.stringify({ title, content }),
-                success: () => document.location.replace('/profile'),
+                data: { "title": title, "content": content },
+                success: () => document.location.replace('/dashboard'),
                 error: () => alert('There was an error creating the blog post')
         });
     }
@@ -26,5 +26,6 @@ function delButtonHandler() {
         error: () => alert('Failed to delete blog post')
     }); 
 }
-  
+
+$('#blog-form').submit(newFormHandler);
 $('.delete-blog').click(delButtonHandler);
