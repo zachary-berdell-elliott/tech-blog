@@ -3,14 +3,15 @@ const newFormHandler = (event) => {
     const title = $('#blog-name').val().trim();
     const content = $('#blog-desc').val().trim();
     const id = event.target.attr("data-id");
+    console.log(title);
 
     if (title && content) {
       $.ajax({
           url: `/api/blog/${id}`,
           type: 'PUT',
-          data: JSON.stringify({ title, content }),
+          data: {"title": title, "content": content },
           dataType: 'json',
-          success: () => document.location.replace('/'),
+          success: () => console.log('success'),//document.location.replace('/'),
           error: () => alert('Failed to create blog post')
       });
     }
