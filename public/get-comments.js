@@ -1,7 +1,8 @@
 const urlText = window.location.href.substring(0, window.location.href.indexOf('/blog'));
+const blogId = $('#blog-content').attr('data-id');
 
 $.ajax({
-    url: urlText + 'api/comments',
+    url: urlText + 'api/comments/blog-comments/' + blogId,
     dataType: 'json',
     type: 'GET',
 
