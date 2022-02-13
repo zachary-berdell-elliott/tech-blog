@@ -51,11 +51,11 @@ router.get('/blog/:id', async (req, res) => {
         {
           model: Users,
           attributes: ['name'],
-        },
+        }
       ],
     });
 
-/*    const commentData = await Comments.findAll({
+    /*const commentData = await Comments.findAll({
       where: {
         postId: req.params.id
       },
@@ -69,6 +69,7 @@ router.get('/blog/:id', async (req, res) => {
 
     const blog = blogData.get({ plain: true });
     //const comment = commentData.get({ plain: true });
+    //console.log(commentData);
 
     res.render('partials/blog', {
       ...blog,

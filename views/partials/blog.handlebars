@@ -14,10 +14,23 @@
   <p>Posted by {{user.name}} on {{format_date date_created}}</p>
 </article>
 {{/if}}
+{{#if logged_in}}
+<form class="col-md-6 justify-center blog-block">
+  <label for="comment-entry">Leave a Comment:</label>
+  <input id="comment-entry" type="text" name="comment" />
+  <button class="comment-btn" type="submit">ADD COMMENT</button>
+</form>
+{{/if}}
 
+{{#each comments as |comment|}}
 
+{{/each}}
+  
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/get-comments.js"></script>
-{{#if originalPoster}}
-<script src="/js/editblog.js"></script>
+{{#if logged_in}}
+<script src="./add-comment.js"></script>
+{{/if}}
+{{#if original_poster}}
+<script src="./editblog.js"></script>
 {{/if}}

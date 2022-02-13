@@ -17,6 +17,24 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/blog-comments/:blog_id', async (req, res) => {
+  const commentData = await Comments.findAll({
+    where: {
+      blog_id: req.params.blog_id
+    },
+    include: [{
+      model: Users,
+      attributes: ['name']
+    }]
+  });
+
+  if(!commentData) {
+    res.status(404).json('There is no comments with this blog_id');
+    return;
+  }
+  res.status(200).json(commentData);
+});
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comments.create({
