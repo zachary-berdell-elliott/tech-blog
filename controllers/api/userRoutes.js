@@ -4,7 +4,8 @@ const { Users, Comments, Blogs } = require('../../models');
 router.get('/', async (req, res) => {
   try {
       const userData = await Users.findAll({
-          include: [Comments, Blogs]
+          include: [Comments, Blogs],
+          attributes: { exclude: ['password'] },
       });
       res.status(200).json(userData);
   } catch (err) {

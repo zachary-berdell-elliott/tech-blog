@@ -22,7 +22,7 @@
 </form>
 {{/if}}
 
-{{#each comments as |comment|}}
+{{#each comment as |comment|}}
 <article class="comment-block">
   <span>{{comment.user.name}}</span>
   <span>{{format_date comment.date_created}}</span>
@@ -31,10 +31,10 @@
 {{/each}}
   
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./get-comments.js"></script>
+<script src="../get-comments.js"></script>
 {{#if logged_in}}
-<script src="./add-comment.js"></script>
+<script src="../add-comment.js"></script>
 {{/if}}
 {{#if original_poster}}
-<script src="./editblog.js"></script>
+<script src="../edit-blog.js"></script>
 {{/if}}

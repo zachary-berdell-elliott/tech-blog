@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Information on Node.js",
+    "content": "It is a way to use JavaScript in the backend of a website."
+  },
+  {
+    "title": "Why React is better than Handlebars",
+    "content": "React is an easier to use technology with more features. It can be very helpful after someone learns to use it."
+  },
+  {
+    "title": "Using git for version control",
+    "content": "Git is a very helpful tool to use when programming. It can help you with making different branches and reverting back to older commits."
+  }
+]
