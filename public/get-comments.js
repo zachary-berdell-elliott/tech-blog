@@ -8,7 +8,7 @@ $.ajax({
 
     success: function(result){
         console.log(result);
-        result.forEach(comment => {
+        /*result.forEach(comment => {
             $('.blog-block').each(function(){
                 console.log($(this).parent().attr('blog-id'));
                 if($(this).parent().attr('blog-id') == comment.post_id){
@@ -19,7 +19,7 @@ $.ajax({
                 </article>`);
                 }
             })
-        });
+        }); */
     },
 
     error: function(){

@@ -1,11 +1,12 @@
-$('#comment-creator').submit(function(){
+$('#comment-creator').submit(function(event){
+    event.preventDefault
     const commentText = $('#comment-entry').val();
     console.log(commentText);
     blogId = $(this).siblings('#blog-content').attr('blog-id');
-    console.log(blogId);
+    const urlText = window.location.href.substring(0, window.location.href.indexOf('/blog'));
 
     $.ajax({
-        url: window.location.href + 'api/comments',
+        url: urlText + 'api/comments',
         dataType: 'json',
         type: 'POST',
         data: {

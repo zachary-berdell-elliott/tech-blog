@@ -55,25 +55,10 @@ router.get('/blog/:id', async (req, res) => {
       ],
     });
 
-    const commentData = await Comments.findAll({
-      where: {
-        postId: req.params.id
-      },
-        include: [
-          {
-            model: Users,
-            attributes: ['name']
-          }
-        ]
-    }); 
-
     const blog = blogData.get({ plain: true });
-    const comment = commentData.get({ plain: true });
-    console.log(comment);
 
     res.render('partials/blog', {
       ...blog,
-      ...comment,
       original_poster: req.session.user_id != blog.user_id ? false : true,
       logged_in: req.session.logged_in
     });

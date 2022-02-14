@@ -23,11 +23,11 @@
 {{/if}}
 
 {{#each comment as |comment|}}
-<article class="comment-block">
+<section class="comment-block">
   <span>{{comment.user.name}}</span>
   <span>{{format_date comment.date_created}}</span>
   <p>{{comment.commentContent}}</p>
-</article>
+</section>
 {{/each}}
   
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
