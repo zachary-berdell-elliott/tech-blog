@@ -6,7 +6,7 @@ $('#comment-creator').submit(function(event){
     const urlText = window.location.href.substring(0, window.location.href.indexOf('/blog'));
 
     $.ajax({
-        url: urlText + 'api/comments',
+        url: urlText + '/api/comments',
         dataType: 'json',
         type: 'POST',
         data: {
