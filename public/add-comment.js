@@ -11,11 +11,14 @@ $('#comment-creator').submit(function(event){
         type: 'POST',
         data: {
             "blog_id": parseInt(blogId),
-            "commentContent": commentText,
-            "date_created": new Date()
+            "commentContent": commentText
+            //"date_created": new Date()
         },
 
-       // success: () => document.location.replace(window.location.href),
+       success: () => {
+           document.location.replace(window.location.href);
+           console.log(commentText);
+       },
 
         error: function(){
          //   alert("There was an error sending your comment. Please try again later.");

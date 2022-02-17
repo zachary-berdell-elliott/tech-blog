@@ -3,15 +3,16 @@ function newFormHandler (event) {
     const title = $('#blog-name').val().trim();
     const content = $('#blog-desc').val().trim();
     const id = $(this).attr("data-id");
-    console.log(id)
+    const urlText = window.location.href.substring(0, window.location.href.indexOf('/blog'));
+    console.log(title, content)
 
     if (title && content) {
       $.ajax({
-          url: `/api/blog/${id}`,
+          url:  `/api/blog/${id}`,
           type: 'PUT',
-          data: {"title": title, "content": content },
           dataType: 'json',
-          success: () => document.location.replace('/'),
+          data: {"title": title, "content": content },
+          success: () => document.location.replace(`/blog/${id}`),
           error: () => alert('Failed to create blog post')
       });
     }
