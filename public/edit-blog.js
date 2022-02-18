@@ -3,8 +3,6 @@ function newFormHandler (event) {
     const title = $('#blog-name').val().trim();
     const content = $('#blog-desc').val().trim();
     const id = $(this).attr("data-id");
-    const urlText = window.location.href.substring(0, window.location.href.indexOf('/blog'));
-    console.log(title, content)
 
     if (title && content) {
       $.ajax({

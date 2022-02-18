@@ -22,12 +22,13 @@
 </form>
 {{/if}}
 
+<section id="comment-section"></section>
 {{#each comment as |comment|}}
-<section class="comment-block">
+<article class="comment-block">
   <span>{{comment.user.name}}</span>
   <span>{{format_date comment.date_created}}</span>
   <p>{{comment.commentContent}}</p>
-</section>
+</article>
 {{/each}}
   
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
