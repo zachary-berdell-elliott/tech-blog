@@ -14,8 +14,9 @@ $.ajax({
                 console.log($(this).parent().attr('blog-id'));
                 if($(this).parent().attr('blog-id') == comment.post_id){
                     $(this).append(`<article class="comment-block tb-site-container">
-                    <span>${comment.user.name}</span>
-                    <span>${comment.date_created}</span>
+
+                        <span>${comment.user.name}</span>
+                        <span class="text-center">${comment.date_created}</span>
                     <p>${comment.comment_content}</p>
                 </article>`);
                 }

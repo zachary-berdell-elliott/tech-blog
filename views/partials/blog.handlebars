@@ -1,5 +1,5 @@
 {{#if original_poster}}
-<form id="blog-content" class="text-center edit-blog-form tb-site-container" data-id="{{id}}">
+<form id="blog-content" class="d-flex flex-column text-center edit-blog-form tb-site-container" data-id="{{id}}">
   <input value="{{title}}" class="form-input" id="blog-name">
   <textarea class="form-input" id="blog-desc">{{content}}</textarea>
   <div class="form-group">
@@ -15,14 +15,14 @@
 </article>
 {{/if}}
 {{#if logged_in}}
-<form class="d-flex col-md-6 justify-content-center tb-site-container" id="comment-creator">
+<form class="d-flex flex-row justify-content-center tb-site-container" id="comment-creator">
   <label for="comment-entry">Leave a Comment:</label>
   <input id="comment-entry" type="text" name="comment" class="input-large"/>
   <button class="comment-btn" type="submit">ADD COMMENT</button>
 </form>
 {{/if}}
 
-<section id="comment-section tb-site-container"></section>
+<section id="comment-section"></section>
   
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../get-comments.js"></script>
