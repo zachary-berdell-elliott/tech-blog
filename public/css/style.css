@@ -1,0 +1,9 @@
+body {
+    background-image: url('../images/tech-blog-background.jpg');
+    background-attachment: fixed;
+}
+
+.tb-site-container {
+    background-color: rgba(6, 15, 95, 0.596);
+    color: white;
+}

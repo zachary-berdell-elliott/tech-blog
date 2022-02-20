@@ -1,5 +1,5 @@
 <div class="row mt-4">
-  <div class="col-md-6">
+  <div class="col-md-6 tb-site-container">
     <h2>Create New Blog Post:</h2>
       <form id="blog-form" class="form new-blog-form"> 
   <div class="form-group">
@@ -8,7 +8,7 @@
         </div>
       <div class="form-group">
         <label for="blog-desc">Content:</label>
-        <textarea class="form-input" id="blog-desc" name="content" rows="10" cols="20"></textarea>
+        <textarea class="form-input" id="blog-desc" name="content" rows="10" cols="40"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -17,13 +17,13 @@
   </div>
 
   {{#if blogs.length}}
-  <div class="col-md-6 blog-list">
+  <aside class="col-md-6 blog-list tb-site-container">
     <h2>Your Blog Posts:</h2>
 
     {{#each blogs as |blog|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h3><a href="/blog/{{blog.id}}">{{blog.title}}</a></h3>
+        <h3><a href="/blog/{{blog.id}}" class="text-light">{{blog.title}}</a></h3>
       </div>
       <div class="row justify-center">
       <div class="col-md-4">
@@ -32,7 +32,7 @@
       </div>
     </div>
     {{/each}}
-  </div>
+  </aside>
   {{/if}}
 </div>
 
