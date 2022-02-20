@@ -1,4 +1,5 @@
 <!-- Loop over each object in the blog array -->
+<div class="d-flex flex-column-reverse">
 {{#each blogs as |blog| }}
 <article class="row mb-4 blog justify-center border-bottom border-right tb-site-container" blog-id={{blog.id}}>
   <div class="col-md-6">
@@ -15,3 +16,4 @@
   </div>
 </article>
 {{/each}}
+</div>

@@ -8,15 +8,15 @@ $.ajax({
     type: 'GET',
 
     success: function(result){
-        console.log(result);
         result.forEach(comment => {
+            console.log(comment)
             $('#comment-section').each(function(){
-                console.log($(this).parent().attr('blog-id'));
                 if($(this).parent().attr('blog-id') == comment.post_id){
                     $(this).append(`<article class="comment-block tb-site-container">
-
+                    <h3 class="d-flex">
                         <span>${comment.user.name}</span>
-                        <span class="text-center">${comment.date_created}</span>
+                        <span class="ms-auto me-1">${comment.date_created}</span>
+                    </h3>
                     <p>${comment.comment_content}</p>
                 </article>`);
                 }
