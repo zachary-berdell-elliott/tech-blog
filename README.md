@@ -1,7 +1,7 @@
 # Technology Blog Application [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-This is an application that allows users to make posts about technologies. Users can create accounts, make blog posts, and comment on blog posts. [Thesite can be accessed here.](https://calm-beach-85217.herokuapp.com/)
+This is an application that allows users to make posts about technologies. Users can create accounts, make blog posts, and comment on blog posts. [The site can be accessed here.](https://calm-beach-85217.herokuapp.com/)
 
 ![Image of the website homepage.](./assets/site-image.png)
 
